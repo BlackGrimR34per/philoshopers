@@ -6,7 +6,7 @@
 /*   By: yosherau <yosherau@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 14:28:47 by yosherau          #+#    #+#             */
-/*   Updated: 2025/05/12 19:04:58 by yosherau         ###   ########.fr       */
+/*   Updated: 2025/05/12 23:50:41 by yosherau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ int	main(int argc, char *argv[])
 {
 	t_utils	util;
 
-	if (argc == 5)
-	if (argc == 6)
-
+	if (argc != 5 && argc != 6)
+		exit (1);
+	check_initialisers(argc, &util, argv);
+	init_philos(&util);
 }

@@ -6,18 +6,19 @@
 /*   By: yosherau <yosherau@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 14:31:24 by yosherau          #+#    #+#             */
-/*   Updated: 2025/05/12 18:50:00 by yosherau         ###   ########.fr       */
+/*   Updated: 2025/05/12 23:50:31 by yosherau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHILOSOPHERS_H
 # define PHILOSOPHERS_H
 
+# include <stdio.h>
+# include <string.h>
 # include <unistd.h>
 # include <stdlib.h>
 # include <pthread.h>
-# include <sys/time.h>
-# include <stdio.h>
+
 
 // typedef struct s_philo
 // {
@@ -31,12 +32,15 @@ typedef struct s_utils
 	int	time_to_die;
 	int	time_to_eat;
 	int	time_to_sleep;
-	int	number_of_eatings;
+	int	num_philo_must_eat;
+	int	must_eat;
 }	t_utils;
 
 long	ft_atol(char *str);
 int		ft_isdigit(char c);
-int		check_initialisers(t_utils *utils, char *argv[]);
+void	check_initialisers(int argc, t_utils *utils, char *argv[]);
+void	init_utils(int argc, t_utils *utils, char *argv[]);
+void	init_philos(t_utils *util);
 void	print_error(void);
 
 #endif

@@ -1,29 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_initialisers.c                               :+:      :+:    :+:   */
+/*   init_philos.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yosherau <yosherau@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/29 18:26:52 by yosherau          #+#    #+#             */
-/*   Updated: 2025/05/12 23:21:23 by yosherau         ###   ########.fr       */
+/*   Created: 2025/05/12 23:34:10 by yosherau          #+#    #+#             */
+/*   Updated: 2025/05/12 23:52:23 by yosherau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philosophers.h"
 
-void	check_initialisers(int argc, t_utils *utils, char *argv[])
+void	*temp(void *args)
 {
-	init_utils(argc, utils, argv);
-	if (utils->num_of_philo < 1 || utils->num_of_philo > 200)
-		exit(1);
-	if (utils->time_to_die == 0)
-		exit(1);
-	if (utils->time_to_eat == 0)
-		exit(1);
-	if (utils->time_to_sleep == 0)
-		exit(1);
-	if (utils->must_eat)
-		if (utils->num_philo_must_eat == 0)
-			exit(1);
+	printf("HELLO\n");
 }
+
+void	init_philos(t_utils *util)
+{
+	pthread_t	*threads;
+	int			index;
+
+	threads = malloc(sizeof(pthread_t) * util->num_of_philo);
+	index = -1;
+	while (++index < util->num_of_philo)
+		pthread_create(threads + index, NULL, temp, NULL);
+	index = -1;
+	while (++index < util->num_of_philo)
+		pthread_join(threads[index], NULL);
+	index = -1;
+	free(threads);
+}
+
