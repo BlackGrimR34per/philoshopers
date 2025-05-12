@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_initialisers.c                               :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yosherau <yosherau@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/29 18:26:52 by yosherau          #+#    #+#             */
-/*   Updated: 2025/05/12 19:04:36 by yosherau         ###   ########.fr       */
+/*   Created: 2025/05/12 18:35:54 by yosherau          #+#    #+#             */
+/*   Updated: 2025/05/12 18:36:20 by yosherau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../philosophers.h"
-
-int	check_initialisers(t_utils *utils, char *argv[])
+int	ft_isdigit(char c)
 {
-	utils->num_of_philo = ft_atol(argv[1]);
-	utils->time_to_die = ft_atol(argv[2]);
-	utils->time_to_eat = ft_atol(argv[3]);
-	utils->time_to_die = ft_atol(argv[4]);
-	utils->number_of_eatings = ft_atol(argv[5]);
-
-
+	if (c >= 48 && c <= 57)
+		return (1);
+	return (0);
 }

@@ -1,24 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_initialisers.c                               :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yosherau <yosherau@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/29 18:26:52 by yosherau          #+#    #+#             */
-/*   Updated: 2025/05/12 19:04:36 by yosherau         ###   ########.fr       */
+/*   Created: 2025/05/12 13:31:16 by yosherau          #+#    #+#             */
+/*   Updated: 2025/05/12 18:40:07 by yosherau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philosophers.h"
 
-int	check_initialisers(t_utils *utils, char *argv[])
+long	ft_atol(char *str)
 {
-	utils->num_of_philo = ft_atol(argv[1]);
-	utils->time_to_die = ft_atol(argv[2]);
-	utils->time_to_eat = ft_atol(argv[3]);
-	utils->time_to_die = ft_atol(argv[4]);
-	utils->number_of_eatings = ft_atol(argv[5]);
+	int		sign;
+	long	nbr;
 
-
+	sign = 1;
+	nbr = 0;
+	while ((*str >= 9 && *str <= 13) || *str == 32)
+		str++;
+	if (*str == 43 || *str == 45)
+	{
+		if (*str == 45)
+			sign = -1;
+		str++;
+	}
+	while (*str >= 48 && *str <= 57)
+		nbr = nbr * 10 + (*str++ - 48);
+	if (!ft_isdigit(*str) && *str)
+		exit (1);
+	return (nbr * sign);
 }

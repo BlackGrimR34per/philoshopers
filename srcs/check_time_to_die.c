@@ -3,11 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   check_time_to_die.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yosherau <yosherau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yosherau <yosherau@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 18:35:21 by yosherau          #+#    #+#             */
-/*   Updated: 2025/04/29 18:35:47 by yosherau         ###   ########.fr       */
+/*   Updated: 2025/05/12 18:39:07 by yosherau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	check_time_to_die(char )
+{
+	
+}
