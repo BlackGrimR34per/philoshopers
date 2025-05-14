@@ -1,26 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philosophers.c                                     :+:      :+:    :+:   */
+/*   sleep.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yosherau <yosherau@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/28 14:28:47 by yosherau          #+#    #+#             */
-/*   Updated: 2025/05/14 20:04:15 by yosherau         ###   ########.fr       */
+/*   Created: 2025/05/14 17:58:49 by yosherau          #+#    #+#             */
+/*   Updated: 2025/05/14 18:03:23 by yosherau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./philosophers.h"
+#include "../philosophers.c"
 
-// number_of_philosophers time_to_die time_to_eat time_to_sleep
-// [number_of_times_each_philosopher_must_eat]
-
-int	main(int argc, char *argv[])
-{
-	t_utils	util;
-
-	// if (argc != 5 && argc != 6)
-	// 	exit (1);
-	// check_initialisers(argc, &util, argv);
-	// init_philos(&util);
-}

@@ -6,30 +6,45 @@
 /*   By: yosherau <yosherau@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 23:34:10 by yosherau          #+#    #+#             */
-/*   Updated: 2025/05/12 23:52:23 by yosherau         ###   ########.fr       */
+/*   Updated: 2025/05/14 20:05:36 by yosherau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philosophers.h"
 
-void	*temp(void *args)
+void	get_time()
 {
-	printf("HELLO\n");
+	struct timeval	tv;
+
+	gettimeofday(&tv, NULL);
+	
 }
 
+// f-sanitize=threads complains, change the function to be more modular
 void	init_philos(t_utils *util)
 {
-	pthread_t	*threads;
-	int			index;
+	int	index;
 
-	threads = malloc(sizeof(pthread_t) * util->num_of_philo);
+	util->philos = malloc(sizeof(t_philo) * util->num_of_philo);
+	util->forks = malloc(sizeof(t_fork) * util->num_of_philo);
 	index = -1;
 	while (++index < util->num_of_philo)
-		pthread_create(threads + index, NULL, temp, NULL);
+	{
+		util->forks[index].id = index;
+		pthread_mutex_init(&util->forks[index].fork, NULL);
+	}
 	index = -1;
 	while (++index < util->num_of_philo)
-		pthread_join(threads[index], NULL);
+	{
+		util->philos[index].id = index + 1;
+		util->philos[index].left_fork = index;
+		util->philos[index].right_fork = (index + 1) % util->num_of_philo;
+		pthread_create(&util->philos[index].thread, NULL,
+			start_routine, util);
+	}
+	util->simulation_start = gettimeofday();
+	util->threads_ready = 1;
 	index = -1;
-	free(threads);
+	while (++index < util->num_of_philo)
+		pthread_join(util->philos[index].thread, NULL);
 }
-
