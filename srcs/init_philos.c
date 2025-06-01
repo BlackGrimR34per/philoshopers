@@ -6,7 +6,7 @@
 /*   By: yosherau <yosherau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 23:34:10 by yosherau          #+#    #+#             */
-/*   Updated: 2025/06/01 16:59:26 by yosherau         ###   ########.fr       */
+/*   Updated: 2025/06/01 19:48:37 by yosherau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,11 @@ void	init_philos(t_utils *util)
 	while (++index < util->num_of_philo)
 	{
 		util->philos[index].id = index + 1;
+		util->philos[index].util = util;
 		util->philos[index].left_fork = index;
 		util->philos[index].right_fork = (index + 1) % util->num_of_philo;
 		pthread_create(&util->philos[index].thread, NULL,
-			start_routine, util);
+			start_routine, &util->philos[index]);
 	}
 	util->simulation_start = get_time();
 	util->threads_ready = 1;

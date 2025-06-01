@@ -6,7 +6,7 @@
 /*   By: yosherau <yosherau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 14:31:24 by yosherau          #+#    #+#             */
-/*   Updated: 2025/06/01 19:07:27 by yosherau         ###   ########.fr       */
+/*   Updated: 2025/06/01 19:52:04 by yosherau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,14 @@ typedef struct s_fork
 
 typedef struct s_philo
 {
-	int			id;
-	int			left_fork;
-	int			right_fork;
-	int			meals_eaten;
-	long		last_meal;
-	bool		is_alive;
-	pthread_t	thread;
+	int				id;
+	int				left_fork;
+	int				right_fork;
+	int				meals_eaten;
+	long			last_meal;
+	bool			is_alive;
+	struct s_utils	*util;
+	pthread_t		thread;
 }	t_philo;
 
 typedef struct s_utils
