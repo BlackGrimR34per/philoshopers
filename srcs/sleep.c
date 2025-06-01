@@ -3,12 +3,11 @@
 /*                                                        :::      ::::::::   */
 /*   sleep.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yosherau <yosherau@student.42kl.edu.my>    +#+  +:+       +#+        */
+/*   By: yosherau <yosherau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 17:58:49 by yosherau          #+#    #+#             */
-/*   Updated: 2025/05/14 18:03:23 by yosherau         ###   ########.fr       */
+/*   Updated: 2025/06/01 15:53:16 by yosherau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../philosophers.c"
-
+// #include "../philosophers.c"

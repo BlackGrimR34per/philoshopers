@@ -3,21 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   init_philos.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yosherau <yosherau@student.42kl.edu.my>    +#+  +:+       +#+        */
+/*   By: yosherau <yosherau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 23:34:10 by yosherau          #+#    #+#             */
-/*   Updated: 2025/05/14 20:05:36 by yosherau         ###   ########.fr       */
+/*   Updated: 2025/06/01 16:59:26 by yosherau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philosophers.h"
 
-void	get_time()
+static long	get_time()
 {
 	struct timeval	tv;
+	long			milliseconds;
 
 	gettimeofday(&tv, NULL);
-	
+	milliseconds = (tv.tv_sec * 1000) + (tv.tv_usec / 1000);
+	return (milliseconds);
 }
 
 // f-sanitize=threads complains, change the function to be more modular
@@ -42,7 +44,7 @@ void	init_philos(t_utils *util)
 		pthread_create(&util->philos[index].thread, NULL,
 			start_routine, util);
 	}
-	util->simulation_start = gettimeofday();
+	util->simulation_start = get_time();
 	util->threads_ready = 1;
 	index = -1;
 	while (++index < util->num_of_philo)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yosherau <yosherau@student.42kl.edu.my>    +#+  +:+       +#+        */
+/*   By: yosherau <yosherau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 13:31:16 by yosherau          #+#    #+#             */
-/*   Updated: 2025/05/13 19:51:56 by yosherau         ###   ########.fr       */
+/*   Updated: 2025/06/01 18:49:42 by yosherau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ static void	check_input(char *str)
 // Change magic numbers
 long	ft_atol(char *str)
 {
-	int		len;
 	long	nbr;
 
 	check_input(str);

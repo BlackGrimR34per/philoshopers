@@ -6,14 +6,14 @@
 /*   By: yosherau <yosherau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 14:30:35 by yosherau          #+#    #+#             */
-/*   Updated: 2025/04/29 17:42:22 by yosherau         ###   ########.fr       */
+/*   Updated: 2025/06/01 15:43:47 by yosherau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philosophers.h"
 
-void	print_error(void)
+int	print_error(char *error_message)
 {
-	write(1, "Error\n", 6);
-	exit(1);
+	printf("%s", error_message);
+	return (1);
 }

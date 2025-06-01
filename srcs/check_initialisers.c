@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_initialisers.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yosherau <yosherau@student.42kl.edu.my>    +#+  +:+       +#+        */
+/*   By: yosherau <yosherau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/29 18:26:52 by yosherau          #+#    #+#             */
-/*   Updated: 2025/05/13 19:38:12 by yosherau         ###   ########.fr       */
+/*   Updated: 2025/06/01 15:47:19 by yosherau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
