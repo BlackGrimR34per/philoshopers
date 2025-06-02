@@ -6,13 +6,13 @@
 /*   By: yosherau <yosherau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 23:34:10 by yosherau          #+#    #+#             */
-/*   Updated: 2025/06/01 19:48:37 by yosherau         ###   ########.fr       */
+/*   Updated: 2025/06/02 16:06:41 by yosherau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../philosophers.h"
 
-static long	get_time()
+long	get_time()
 {
 	struct timeval	tv;
 	long			milliseconds;
@@ -39,6 +39,9 @@ void	init_philos(t_utils *util)
 	while (++index < util->num_of_philo)
 	{
 		util->philos[index].id = index + 1;
+		util->philos[index].is_alive = true;
+		util->philos[index].meals_eaten = 0;
+		util->philos[index].last_meal = 0;
 		util->philos[index].util = util;
 		util->philos[index].left_fork = index;
 		util->philos[index].right_fork = (index + 1) % util->num_of_philo;

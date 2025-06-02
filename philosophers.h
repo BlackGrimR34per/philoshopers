@@ -6,7 +6,7 @@
 /*   By: yosherau <yosherau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 14:31:24 by yosherau          #+#    #+#             */
-/*   Updated: 2025/06/01 19:52:04 by yosherau         ###   ########.fr       */
+/*   Updated: 2025/06/02 16:32:56 by yosherau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,16 +44,19 @@ typedef struct s_philo
 
 typedef struct s_utils
 {
-	int		num_of_philo;
-	int		time_to_die;
-	int		time_to_eat;
-	int		time_to_sleep;
-	int		num_philo_must_eat;
-	int		must_eat;
-	long	simulation_start;
-	bool	threads_ready;
-	t_fork	*forks;
-	t_philo	*philos;
+	int				num_of_philo;
+	int				time_to_die;
+	int				time_to_eat;
+	int				time_to_sleep;
+	int				num_philo_must_eat;
+	int				must_eat;
+	int				a_philo_has_died;
+	long			simulation_start;
+	bool			threads_ready;
+	pthread_mutex_t	print_lock;
+	pthread_mutex_t	meal_lock;
+	t_fork			*forks;
+	t_philo			*philos;
 }	t_utils;
 
 void	check_initialisers(int argc, t_utils *utils, char *argv[]);
@@ -64,5 +67,9 @@ void	init_utils(int argc, t_utils *utils, char *argv[]);
 void	init_philos(t_utils *util);
 int		print_error(char *error_message);
 void	*start_routine(void *args);
+void	start_eating(t_utils *util, t_philo *philo);
+void	start_sleeping(t_utils *util, t_philo *philo);
+void	start_thinking(t_philo *philo);
+long	get_time();
 
 #endif
