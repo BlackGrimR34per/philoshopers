@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philosophers.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yosherau <yosherau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yosherau <yosherau@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 14:31:24 by yosherau          #+#    #+#             */
-/*   Updated: 2025/06/02 16:32:56 by yosherau         ###   ########.fr       */
+/*   Updated: 2025/06/03 03:05:27 by yosherau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ typedef struct s_utils
 }	t_utils;
 
 void	check_initialisers(int argc, t_utils *utils, char *argv[]);
+void	death_monitor();
 void	free_utils(t_utils *util);
 long	ft_atol(char *str);
 int		ft_isdigit(char c);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_philos.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yosherau <yosherau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yosherau <yosherau@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 23:34:10 by yosherau          #+#    #+#             */
-/*   Updated: 2025/06/02 16:06:41 by yosherau         ###   ########.fr       */
+/*   Updated: 2025/06/03 03:05:50 by yosherau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ long	get_time()
 // f-sanitize=threads complains, change the function to be more modular
 void	init_philos(t_utils *util)
 {
-	int	index;
+	int			index;
+	pthread_t	monitoring_thread;
 
 	util->philos = malloc(sizeof(t_philo) * util->num_of_philo);
 	util->forks = malloc(sizeof(t_fork) * util->num_of_philo);
@@ -49,8 +50,13 @@ void	init_philos(t_utils *util)
 			start_routine, &util->philos[index]);
 	}
 	util->simulation_start = get_time();
-	util->threads_ready = 1;
+	util->threads_ready = true;
+
+	pthread_create(&monitoring_thread, NULL, death_monitor, NULL);
+
 	index = -1;
 	while (++index < util->num_of_philo)
 		pthread_join(util->philos[index].thread, NULL);
+
+	pthread_join(monitoring_thread, NULL);
 }
