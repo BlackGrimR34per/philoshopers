@@ -6,7 +6,7 @@
 /*   By: yosherau <yosherau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 23:34:10 by yosherau          #+#    #+#             */
-/*   Updated: 2025/06/03 18:00:35 by yosherau         ###   ########.fr       */
+/*   Updated: 2025/06/03 18:10:16 by yosherau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,18 @@
 long	get_time(t_time_measurement time_measurement)
 {
 	struct timeval	tv;
-
+	
+	// Need to change the exit and exit code
 	if (gettimeofday(&tv, NULL) == -1)
-		exit();
+		exit(1);
 	else if (time_measurement == MICROSECONDS)
 		return ((tv.tv_sec * 1e6) + tv.tv_usec);
 	else if (time_measurement == MILLISECONDS)
 		return ((tv.tv_sec * 1000) + (tv.tv_usec / 1000));
 	else if (time_measurement == SECONDS)
 		return (tv.tv_sec + (tv.tv_usec / 1e6));
+	else
+		exit(1);
 }
 
 // f-sanitize=threads complains, change the function to be more modular
