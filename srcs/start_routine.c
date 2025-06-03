@@ -6,7 +6,7 @@
 /*   By: yosherau <yosherau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/13 12:44:28 by yosherau          #+#    #+#             */
-/*   Updated: 2025/06/02 16:35:19 by yosherau         ###   ########.fr       */
+/*   Updated: 2025/06/03 17:58:08 by yosherau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	wait_threads(t_utils *utils)
 void	print_status(t_utils *util, int id, char *message)
 {
 	pthread_mutex_lock(&util->print_lock);
-	printf("%ld %d %s\n", get_time() - util->simulation_start, id, message);
+	printf("%ld %d %s\n", get_time(MILLISECONDS) - util->simulation_start, id, message);
 	pthread_mutex_unlock(&util->print_lock);
 }
 
@@ -38,7 +38,7 @@ void	start_eating(t_utils *util, t_philo *philo)
 
 		print_status(util, philo->id, "is eating");
 		pthread_mutex_lock(&util->meal_lock);
-		philo->last_meal = get_time();
+		philo->last_meal = get_time(MILLISECONDS);
 		pthread_mutex_unlock(&util->meal_lock);
 		usleep(util->time_to_eat * 1000);
 		philo->meals_eaten++;
@@ -58,7 +58,7 @@ void	start_eating(t_utils *util, t_philo *philo)
  		print_status(util, philo->id, "has taken left fork");
 
 		print_status(util, philo->id, "is eating");
-		philo->last_meal = get_time();
+		philo->last_meal = get_time(MILLISECONDS);
 		usleep(util->time_to_eat * 1000);
 		philo->meals_eaten++;
 
