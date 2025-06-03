@@ -6,7 +6,7 @@
 /*   By: yosherau <yosherau@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/12 23:34:10 by yosherau          #+#    #+#             */
-/*   Updated: 2025/06/03 03:05:50 by yosherau         ###   ########.fr       */
+/*   Updated: 2025/06/03 12:27:10 by yosherau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ long	get_time()
 void	init_philos(t_utils *util)
 {
 	int			index;
-	pthread_t	monitoring_thread;
+	// pthread_t	monitoring_thread;
 
 	util->philos = malloc(sizeof(t_philo) * util->num_of_philo);
 	util->forks = malloc(sizeof(t_fork) * util->num_of_philo);
@@ -52,11 +52,11 @@ void	init_philos(t_utils *util)
 	util->simulation_start = get_time();
 	util->threads_ready = true;
 
-	pthread_create(&monitoring_thread, NULL, death_monitor, NULL);
+	// pthread_create(&monitoring_thread, NULL, death_monitor, util);
 
 	index = -1;
 	while (++index < util->num_of_philo)
 		pthread_join(util->philos[index].thread, NULL);
 
-	pthread_join(monitoring_thread, NULL);
+	// pthread_join(monitoring_thread, NULL);
 }
