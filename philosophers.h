@@ -6,7 +6,7 @@
 /*   By: yosherau <yosherau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 14:31:24 by yosherau          #+#    #+#             */
-/*   Updated: 2025/06/03 17:03:39 by yosherau         ###   ########.fr       */
+/*   Updated: 2025/06/04 11:24:50 by yosherau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ typedef struct s_utils
 	int				time_to_sleep;
 	int				num_philo_must_eat;
 	int				must_eat;
-	int				a_philo_has_died;
 	long			simulation_start;
 	bool			threads_ready;
 	bool			simulation_has_ended;
@@ -76,10 +75,10 @@ void	init_utils(int argc, t_utils *utils, char *argv[]);
 void	init_philos(t_utils *util);
 int		print_error(char *error_message);
 void	print_status(t_utils *util, int id, char *message);
+void	precise_sleep(long usec, t_utils *util);
 void	*start_routine(void *args);
 void	start_eating(t_utils *util, t_philo *philo);
 void	start_sleeping(t_utils *util, t_philo *philo);
-void	start_thinking(t_philo *philo);
-long	get_time();
+long	get_time(t_time_measurement time_measurement);
 
 #endif
